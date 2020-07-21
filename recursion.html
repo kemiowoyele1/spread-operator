@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+       <h1>DAY ONE</h1> 
+       <div>
+      <p>    
+Fresh reminder of some javaScript concepts that makes learning of frameworks easier
+</p> 
+<ul>
+    <li>	Recursion</li>
+    <li>Spread operators</li>
+	
+	<li>Object de-structuring</li>	
+	<li>.call(), .apply(), .bind()</li>
+	<li>Higher array order functions (e.g. .map (),  .reduce(), .filter(), Math functions etc.)	</li>
+    <li>Loops(for, for Each, for in, for of)  </li>
+    <li>   	Js promises, callbacks, async and await </li>
+</ul>
+<p>
+I prefer we take about five days or so learning some of these things first, before advancing to react.
+I hope to go over this concepts as a pure novice, make notes from the tutorials and share in the group chat along with
+ links to whatever tutorial I used.
+Feel free to share your own notes if you please. I realized that taking notes helped me dig deeper into research while 
+learning and also with retentiveness. 
+If you prefer to go straight to react, this link may help.
+<a href="https://www.youtube.com/watch?v=9U3IhLAnSxM&t=142s">https://www.youtube.com/watch?v=9U3IhLAnSxM&t=142s</a>
+</p>
+</div>
+<h2>RECURSION</h2>
+<div>
+Recursion is a programing term that means calling a function from itself. Recursion is best applied when you need to call the same
+ function repeatedly with different parameters from within a loop. While it can be used in many situations, it is most effective for 
+ solving problems involving iterative branching, such as fractal math, sorting, or traversing the nodes of complex or non-linear data 
+ structures.
+ </div>
+ <div>
+One reason that recursion is favored in functional programming languages is that it allows for the construction of code that doesn’t require setting and maintaining state with local variables. Recursive functions are also naturally easy to test because they are easy to write in a pure manner, with a specific and consistent return value for any given input, and no side effects on external variable states.
+The main gist with recursion though is that with recursion,
+</div>
+<div>
+<ul>    
+     <li>
+            a function calls itself each time with a smaller piece of input until it reaches something that is called a base case.
+     </li>
+    <li>
+            The base case is the condition when the recursion ends.
+    </li>
+</ul>
+
+</div>
+    <p> The two basic concepts in recursion are:  </p>
+   <ol>
+        <li>	Smaller input(something that gets us closer to the base case)
+            </li>
+        <li>
+                The base case (The point where the recursion ends to avoid something like an infinite loop called ‘stack overflow’)
+
+        </li>
+    </ol>
+
+<h3>Example 1</h3>
+<div>
+        You want to write a recursive function that counts down a number from 5 to 1, the function will be written in such a
+        way that the function will print five, then deduct 1 from 5, call itself again and this time print 4. Then it will deduct
+         1 from 4 again and call itself again to print 3. This will continue to happen until the function gets to 1 then it will stop printing. 
+         In this case, 1 is the base case (otherwise it will run into negative numbers and calls itself infinitely until the browser freezes).
+         The syntax will look like this
+
+</div>
+<div class="code">
+ function countDown (num){ <br>
+if(num <= 0){          <br/>   
+console.log(“all done!”);<br/>
+return;<br/>
+}else{<br/>
+ console.log(num); <br/>
+//reducing the number by one<br/>
+num - -; <br/>
+//function recalling itself<br/>
+countDown(num); <br/>
+}};<br/>
+ countDown(4);
+</div>
+<div class="explain-code">
+The base case here is 0. <br>
+So if the number becomes less than or equal to zero, <br>
+it will print all done in the console,<br>
+and the function will stop calling itself.<br>
+It is very important to include the return statement. Otherwise the function will continue calling itself.
+Except this time, rather than print the number, it will continue printing all done until the browser gets frozen.
+</div>
+<h3>Example 2</h3>
+<div class="code">
+
+        function sumRange(num){<br>
+            if (num === 1) return 1;<br>
+            return num + sumRange(num – 1);<br>
+            }<br>
+            sumRange(3);<br>
+</div>
+<div class="explain-code">
+        The function will return 6<br/>
+        The function took 3 <br>
+         added it to 3-1 <br>
+         and added it to 2-1<br/>
+        Which implies 3+2+1<br/>
+        The base case is 1 because when num becomes equal to one <br/>the function returns 1 and stops running.
+        
+</div>
+<div>
+                <h3>Summary</h3>
+              <ul> 
+                <li>A recursive function is a function that calls itself
+                    </li>
+                    <li>               A recursive function calls itself with a different input each time, which is usually a smaller piece of the previous input
+                        </li>
+                    <li>                   A recursive should always have a base case, that is the point where the function returns and stops recalling itself
+                        </li>
+                        <li>                        If there is no base case, the function will continue to call itself until the browser freezes, this is call stack overflow. 
+                            </li>
+                    </ul> 
+</div>
+<h3>references</h3>
+Most of this note was taken from ‘Colt Steele’s recursion crash course’. <br>
+ You may want to check it out. <br>
+<a href="https://www.youtube.com/watch?v=lMBVwYrmFZQ&t=42s
+">https://www.youtube.com/watch?v=lMBVwYrmFZQ&t=42s
+</a> <br>
+ You may also check out <br>
+<a href=" 
+https://www.sitepoint.com/recursion-functional-javascript/
+"> 
+https://www.sitepoint.com/recursion-functional-javascript/
+</a>
+<a href="https://medium.com/better-programming/a-look-at-recursion-in-javascript-with-examples-e5d27ebacf1e
+">https://medium.com/better-programming/a-look-at-recursion-in-javascript-with-examples-e5d27ebacf1e
+</a>
+    </div>
+</body>
+</html>

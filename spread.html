@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="container">
+   <h1> JAVASCRIPT SPREAD OPERATOR(...)
+</h1>
+<div>
+Spread syntax (...) allows an iterable such as an array expression or string to be expanded in places where 
+zero or more arguments (for function calls) or elements (for array literals) are expected, or an object 
+expression to be expanded in places where zero or more key-value pairs (for object literals) are expected. 
+(Honestly, I don’t understand this).
+</div>
+<p>
+But if we break down the keywords and look at their meanings, it starts making more sense.</p>
+<ul>
+<li>	Iterable: - to iterate means to utter, or do a second time or many times. It means to repeat. 
+    Iterable means: capable of being iterated or looped (e.g.   array expressions, strings, objects)
+    </li>
+<li>	Expand (spread out):
+    </li>
+<li>
+        Zero or more arguments (as in function calls)
+    </li>
+    <li>	Array literals
+        </li>
+        <li>	Zero or more key value pairs (objects literals)
+            </li>
+    </ul>
+    <div>
+Spread operator allows iterables (arrays, objects, springs, function arguments etc.) to be expanded.
+<br>
+Spread operators are basically used in these situations
+</div>
+<ul>
+        <li>In function calls</li>
+        <li>In array literals
+            </li>
+        <li>In object literals
+            </li>
+        
+</ul>
+<div>
+<h3>In function calls </h3>
+When trying to pass an array, or string for instance as an argument in a function, 
+rather than having to pass each argument individually, 
+we can spread out each item as its own argument.
+
+
+ <h3>Example1</h3>
+</div>
+<div class="code">
+let greet = ['Hello', 'World'];<br> 
+console.log(greet); // Without spread operator <br>
+console.log(...greet); // Using spread operator <br>
+</div>
+<div class="explain-code">
+When you console.log(greet), <br> the output is <br>
+["Hello", "World"] <br>
+Whereas with spread operator, <br>
+ console.log(…greet) outputs <br>
+'Hello World' <br>
+<p>In this case, the content of the greet array were expanded and thrown out of the array.
+    </div>
+    </p>
+ <h3>Example2</h3>
+ <div class="code">
+<p>let greetings = "hello";</p>
+ <p>let chars = [...greetings]; </p>
+<p>console.log(chars)</p>
+</div>
+<div class="explain-code">
+<p>The output will be:-  </p>
+ <p>[ 'h', 'e', 'l', 'l', 'o' ]  </p>
+</div>
+<div>
+<h3>Example 3</h3>
+What if you want to use an array as a function argument?
+Like for instance, you desire to get the highest score from an array of scores.
+</div>
+<div class="code">
+const scores = [30, 60, 89, 93, 20, 59, 56, 78];
+Math.max(scores);
+</div>
+<div class="explain-code">
+The output will be
+NaN
+Else using spread operator
+</div>
+<div class="code">
+Math.max(…scores);
+</div>
+<div class="explain-code">
+The output will be 93.
+</div>
+<div>
+The reason behind this is that:
+Without the spread operator, scores was treated as an array, so the entire array was treated as a single argument. Whereas with the spread operator the array was taken out, and the content of the array was treated individually as arguments to the function.
+</div>
+<div>
+<h3>Example 4</h3>
+<div class="code">
+<p>const students = [“Mike”, “Eve”, “Ola”, “Ada”];
+    </p>
+<p>    console.log(students);
+    </p>
+<p>   console.log(…students);
+    </p> 
+</div>
+<div class="explain-code">
+<p>The first function will output</p>
+ <p>Without spread: - ["Mike", "Eve", "Ola", "Ada"]</p>
+<p>With spread operator: - Mike Eve Ola Ada</p>
+</div>
+<div>
+As said earlier, without the spread, it is treated as an array,
+ but with the spread the contents of the array are treated as individual
+  arguments.
+</div>
+</div>
+<h3>In array literals</h3>
+<h4>•	For combining arrays:</h4>
+<div>
+        Let’s assume that in our school, we have primary 1a and primary 1b with the name of pupils declared in arrays like so
+        </div>
+<h3>Example 5
+    </h3>
+
+    <div class="code">       
+            <p> const primary1A = ['Mark', 'Kate', 'Yemi', 'Ahmed']; </p>
+            <p> const primary1B = ['Dorcas', 'Chichi', 'Ryan', 'Yusuf']; </p>
+            <p> const primaryOne = [primary1A, primary1B]; </p>
+            
+            <p> console.log(primaryOne) </p> </div>
+  <div class="explain-code">
+        <p> // the output here will be  </p>
+        <p> // [Array(4), Array(4)] </p>
+        <p> //if we used spread </p>
+
+  </div>
+  <div class="code">       
+   
+            <p> const primary1 = [...primary1A, ...primary1B]; </p>
+            <p> console.log(primary1) </p>
+  </div>
+  <div class="explain-code">
+      
+            <p> // the output with spread will be </p>
+            <p> //["Mark", "Kate", "Yemi", "Ahmed", "Dorcas", "Chichi", "Ryan", "Yusuf"] </p>
+                
+            </div>
+            <div>
+Arrays and strings can also be combined together with spread operators.
+<h3>Example 6
+    </h3>
+Let’s assume that there is a new student (Annie), who is resuming to primary one, but she is yet to be assigned to class A or B. A full list of primary one students would be all the primary1A, primary1B pupils plus Annie.
+<div class="code">
+    <p>    const primaryOneFullList = [...primary1a, ...primary1b, "Annie"];
+        </p>
+    <p>    console.log(primaryOneFullList);
+        </p>
+</div> 
+<div class="explain-code">//output: ["Mark", "Kate", "Yemi", "Ahmed", "Dorcas", "Chichi", "Ryan", "Yusuf", "Annie"]
+    </div>
+</div>
+<h3>	Copying Arrays and Objects
+</h3>
+<div>
+    <p>In JavaScript every non-primitive entity is an Object, which means that arrays are also objects. 
+            You may know that objects are copied as a reference-type:
+            </p>
+<h3>Example 7</h3>
+<p>Let’s say we want to assign primary1A to a teacher, Mrs. Alice
+    </p>
+
+<div class="code">
+        <p> const primary1a = ['Mark', 'Kate', 'Yemi', 'Ahmed'];</p>
+        <p> const Okoro = primary1a;</p>
+         <p> primary1a.push('Annie');</p>
+         <p> console.log(Okoro);</p>
+</div>
+ <div class="explain-code">
+        <p>//output:- (5) ["Mark", "Kate", "Yemi", "Ahmed", "Annie"]</p>
+
+ </div>
+ <div>
+But we don’t intend for Okoro to be Annie’s teacher, as Annie has special needs and would 
+have a personal teacher. But for lack of space, and need for Annie to interact with other kids,
+ Annie would be in primary1A (long story).
+Assigning primary1A to Mrs. Okoro would mean that any name associated to primary 1a is for Her. 
+This is because when we did
+Const Okoro = primary1a;
+We only made reference to the primary 1a array and not to the values inside the array. 
+Hence whenever the variable Okoro is used what we are actually doing is referring to primary1a no 
+matter what has happened in primary1a after our declaration. However, if we only intend to refer to the 
+values inside the array as at the time of the variable declaration, spread operator is here for the rescue. If we do
+</div>
+ <div class="code">
+        <p> const primary1a = ['Mark', 'Kate', 'Yemi', 'Ahmed']; </p>
+        <p> const Okoro = [...primary1a]; </p>
+         <p> primary1a.push('Annie'); </p>
+         <p> console.log(Okoro); </p>
+ </div>
+<div class="explain-code">
+        <p> //output:-  (4) ["Mark", "Kate", "Yemi", "Ahmed"] </p>
+ 
+</div>
+<div>
+We are no longer making reference to the primary1a array, instead, we made a new Okoro array.
+Note: spread only goes one level deep when coping an array. It does not perform a deep copy of nested arrays.
+</div>
+</div>
+<h3>In Object literals</h3>
+<p>With object literals, it’s just about the same as it is with array literals.
+    </p>
+<h3>Example 8
+    </h3>
+  <div>
+        If we want to combine primary1a result for instance with primary 1b result. 
+    And the result of each class is presented in an object like so:
+
+  </div>
+   <div class="code">
+        <p> const class1bResult = {
+            Dorcas: 98, Chichi: 48, Ryan :56, yusuf:74
+        }; </p>
+       <p>  const class1aResult = {
+            Mark:82, Kate:64, yemi:90,Ahmed:78
+        }; </p>
+       <p> const combinedClass ={ ...class1aResult,...class1bResult}; </p>
+       <p> console.log(combinedClass); </p>
+   </div>
+<div class="explain-code">
+        <p> //The result here would be </p>
+        <p> // {Mark: 82, Kate: 64, yemi: 90, Ahmed: 78, Dorcas: 98, Chichi:48, Ryan:56, //Yusuf:74} </p>
+        
+</div>
+<h3>Spread operators and immutability in React and other frameworks.
+    </h3>
+    <div>
+In react state management, there is the idea of immutability,
+ in the sense that you don’t want to change important data in your application. 
+ When you push something or remove something from the data. Instead, you copy the original data,
+  make desired changes, and then render the new data. This helps the state manager know when to re-render
+   the application. If we mutate the data without changing the reference, react might not know that 
+   anything has changed, and the view of the application might not be updated.
+</div>
+<h3>Resources</h3>
+<p> <a href="https://stackabuse.com/spread-operator-in-javascript/
+    ">https://stackabuse.com/spread-operator-in-javascript/
+</a> </p>
+
+<p> <a href="https://medium.com/coding-at-dawn/how-to-use-the-spread-operator-in-javascript-b9e4a8b06fab
+    ">https://medium.com/coding-at-dawn/how-to-use-the-spread-operator-in-javascript-b9e4a8b06fab
+</a> </p>
+<p> <a href="https://www.youtube.com/watch?v=pYI-UuZVtHI&t=240s
+    ">https://www.youtube.com/watch?v=pYI-UuZVtHI&t=240s
+</a> </p>
+
+
+</div>
+</body>
+</html>
